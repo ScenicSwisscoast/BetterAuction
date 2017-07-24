@@ -22,7 +22,20 @@
 
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+
+
+//changed: remove constructors and hard coded them
+    // address _address1 =0xb7cf43651d8f370218cF92B00261cA3e1B02Fda0;
+    // address _address2 = 0x60CE2769E5d330303Bd9Df88F7b843A40510F173;
+    // address _address3 = 0x7422B53EB5f57AdAea0DdffF82ef765Cfbc4DBf0;
+    // uint256 _biddingPeriod = 1800;
+    // uint256 _recoveryAfterPeriod = 1000000;
+
+
+
 // ------------------------------------------------------------------------
+
 pragma solidity ^0.4.8;
 
 contract BetterAuction {
@@ -51,6 +64,13 @@ contract BetterAuction {
     // Set to true at the end, disallows any change
     bool auctionClosed;
 
+     address _address1 =0xb7cf43651d8f370218cF92B00261cA3e1B02Fda0;
+     address _address2 = 0x60CE2769E5d330303Bd9Df88F7b843A40510F173;
+     address _address3 = 0x7422B53EB5f57AdAea0DdffF82ef765Cfbc4DBf0;
+     uint256 _biddingPeriod = 1800;
+     uint256 _recoveryAfterPeriod = 1000000;
+     
+     
     struct Proposal {
         address recipient;
         uint256 numVotes;
@@ -78,15 +98,9 @@ contract BetterAuction {
     event ProposalAdded(uint proposalID, address recipient);
     event Voted(uint proposalID, address voter);
 
-    // Auction starts at deployment, runs for _biddingPeriod (seconds from 
-    // auction start), and funds can be recovered after _recoverPeriod 
-    // (seconds from auction start)
     function BetterAuction(
-        address _address1,
-        address _address2,
-        address _address3,
-        uint256 _biddingPeriod,
-        uint256 _recoveryAfterPeriod
+
+
     ) {
         if (_address1 == 0 || _address2 == 0 || _address3 == 0) throw;
         members[_address1] = true;
